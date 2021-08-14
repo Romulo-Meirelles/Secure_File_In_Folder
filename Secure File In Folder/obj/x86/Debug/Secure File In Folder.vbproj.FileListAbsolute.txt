@@ -1,0 +1,13 @@
+C:\Users\Romulo Meirelles\documents\visual studio 2010\Projects\Secure File In Folder\Secure File In Folder\obj\x86\Debug\SFF.CreatePassword.resources
+C:\Users\Romulo Meirelles\documents\visual studio 2010\Projects\Secure File In Folder\Secure File In Folder\obj\x86\Debug\SFF.Resources.resources
+C:\Users\Romulo Meirelles\documents\visual studio 2010\Projects\Secure File In Folder\Secure File In Folder\obj\x86\Debug\SFF.SFF.resources
+C:\Users\Romulo Meirelles\documents\visual studio 2010\Projects\Secure File In Folder\Secure File In Folder\obj\x86\Debug\SFF.TradePassword.resources
+C:\Users\Romulo Meirelles\documents\visual studio 2010\Projects\Secure File In Folder\Secure File In Folder\obj\x86\Debug\Secure File In Folder.vbproj.GenerateResource.Cache
+C:\Users\Romulo Meirelles\documents\visual studio 2010\Projects\Secure File In Folder\Secure File In Folder\bin\Debug\0SSF - Secure File In Folder.exe.config
+C:\Users\Romulo Meirelles\documents\visual studio 2010\Projects\Secure File In Folder\Secure File In Folder\bin\Debug\0SSF - Secure File In Folder.exe
+C:\Users\Romulo Meirelles\documents\visual studio 2010\Projects\Secure File In Folder\Secure File In Folder\bin\Debug\0SSF - Secure File In Folder.pdb
+C:\Users\Romulo Meirelles\documents\visual studio 2010\Projects\Secure File In Folder\Secure File In Folder\bin\Debug\0SSF - Secure File In Folder.xml
+C:\Users\Romulo Meirelles\documents\visual studio 2010\Projects\Secure File In Folder\Secure File In Folder\obj\x86\Debug\0SSF - Secure File In Folder.exe
+C:\Users\Romulo Meirelles\documents\visual studio 2010\Projects\Secure File In Folder\Secure File In Folder\obj\x86\Debug\0SSF - Secure File In Folder.xml
+C:\Users\Romulo Meirelles\documents\visual studio 2010\Projects\Secure File In Folder\Secure File In Folder\obj\x86\Debug\0SSF - Secure File In Folder.pdb
+C:\Users\Romulo Meirelles\documents\visual studio 2010\Projects\Secure File In Folder\Secure File In Folder\obj\x86\Debug\SFF.About.resources
