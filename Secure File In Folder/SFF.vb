@@ -20,8 +20,6 @@ Public Class SFF
             Me.Hide()
             CreatePassword.ShowDialog()
         End If
-
-
     End Sub
 
     Public Sub SetNumberButton()
@@ -167,6 +165,7 @@ Public Class SFF
         Next
 
         ProgressBar1.Visible = True
+        REVELAR_BGW.WorkerSupportsCancellation = True
         Call REVELAR_BGW.RunWorkerAsync()
         Button1.Enabled = False
         Button2.Enabled = False
@@ -253,8 +252,6 @@ Public Class SFF
             CORRIGIR_BTN.Text = "«" : CORRIGIR_BTN.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Call SetNumberButton()
         End If
-
-
     End Sub
     Private Sub ESCONDER_BTN_Click(sender As System.Object, e As System.EventArgs) Handles ESCONDER_BTN.Click
         Dim PATH As String = My.Application.Info.DirectoryPath
@@ -279,6 +276,7 @@ Public Class SFF
         Next
 
         ProgressBar1.Visible = True
+        ESCONDER_BGW.WorkerSupportsCancellation = True
         Call ESCONDER_BGW.RunWorkerAsync()
         Button1.Enabled = False
         Button2.Enabled = False
@@ -318,9 +316,7 @@ Public Class SFF
             ESCONDER_BGW.ReportProgress(i / CORRECTFILES.Length * 100)
             FilesNames(New IO.FileInfo(CORRECTFILES(i)).Name)
         Next
-
     End Sub
-
     Private Sub ESCONDER_BGW_ProgressChanged(sender As Object, e As System.ComponentModel.ProgressChangedEventArgs) Handles ESCONDER_BGW.ProgressChanged
         Invoke(Sub()
                    Me.ProgressBar1.Value = e.ProgressPercentage
@@ -367,7 +363,6 @@ Public Class SFF
             CORRIGIR_BTN.Text = "«" : CORRIGIR_BTN.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Call SetNumberButton()
         End If
-
     End Sub
     Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
         Try
@@ -402,159 +397,34 @@ Public Class SFF
             LOCAT = e.Location
         End If
     End Sub
-
     Private Sub PictureBox2_MouseMove(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles PictureBox2.MouseMove
         If e.Button = Windows.Forms.MouseButtons.Left Then
             Me.Location += e.Location - LOCAT
         End If
     End Sub
-
     Private Sub Label3_MouseDown(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles Label3.MouseDown
         If e.Button = Windows.Forms.MouseButtons.Left Then
             LOCAT = e.Location
         End If
     End Sub
-
     Private Sub Label3_MouseMove(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles Label3.MouseMove
         If e.Button = Windows.Forms.MouseButtons.Left Then
             Me.Location += e.Location - LOCAT
         End If
     End Sub
-
     Private Sub Panel1_MouseDown(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseDown
         If e.Button = Windows.Forms.MouseButtons.Left Then
             LOCAT = e.Location
         End If
     End Sub
-
     Private Sub Panel1_MouseMove(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseMove
         If e.Button = Windows.Forms.MouseButtons.Left Then
             Me.Location += e.Location - LOCAT
         End If
     End Sub
-
     Private Sub PictureBox3_Click(sender As Object, e As System.EventArgs) Handles PictureBox3.Click
         About.Show()
     End Sub
-
-
-
-
-    'Private Sub Start_Encrypt()
-
-    '    Dim Path As String = My.Application.Info.DirectoryPath
-    '    '  Dim userRoot As String = System.Environment.GetEnvironmentVariable("USERPROFILE")
-    '    '  Dim Files As String() = Directory.GetFiles(Path, "*", SearchOption.AllDirectories)
-    '    Dim Files As String() = Directory.GetFiles(Path, "01.txt", SearchOption.AllDirectories)
-
-    '    For i As Integer = 0 To Files.Length - 1
-    '        ' SetAttr(Files(i), FileAttribute.Normal)
-    '        'CertEnc(Files(i))
-    '        AES_Encrypt(Files(i))
-
-    '        'DecryptRsa(Files(i))
-    '    Next
-
-
-    'End Sub
-    'Private Sub Start_Dec()
-
-    '    Dim Path As String = My.Application.Info.DirectoryPath
-    '    '  Dim userRoot As String = System.Environment.GetEnvironmentVariable("USERPROFILE")
-    '    '  Dim Files As String() = Directory.GetFiles(Path, "*", SearchOption.AllDirectories)
-    '    Dim Files As String() = Directory.GetFiles(Path, "01.txt", SearchOption.AllDirectories)
-
-    '    For i As Integer = 0 To Files.Length - 1
-    '        ' SetAttr(Files(i), FileAttribute.Normal)
-    '        'CertEnc(Files(i))
-    '        AES_Decrypt(Files(i))
-
-    '        'DecryptRsa(Files(i))
-    '    Next
-
-
-    'End Sub
-
-    'Public Sub CertEnc(ByVal Way As String)
-    '    Try
-    '        Dim rsa As New RSACryptoServiceProvider
-    '        Dim MyFileBytes() = System.IO.File.ReadAllBytes(Way)
-    '        Dim Certificado As New X509Certificate2("", "", X509KeyStorageFlags.UserKeySet)
-    '        Dim RSAProvider As RSACryptoServiceProvider = DirectCast(Certificado.PublicKey.Key, RSACryptoServiceProvider)
-    '        Dim BytesToDecrypt() As Byte = MyFileBytes
-    '        Dim EncryptedBytes() As Byte = RSAProvider.Encrypt(BytesToDecrypt, False)
-    '        System.IO.File.WriteAllBytes(Way, EncryptedBytes)
-    '    Catch EX As Exception
-    '        MsgBox(EX.Message)
-    '    End Try
-
-    'End Sub
-
-    'Private Function GetCertificate(ByVal certificateName As String) As X509Certificate2
-    '    Dim Cert As X509Store = New X509Store(StoreName.My, StoreLocation.LocalMachine)
-    '    Cert.Open(OpenFlags.[ReadOnly])
-    '    Dim collection As X509Certificate2Collection = Cert.Certificates.Find(X509FindType.FindBySubjectName, certificateName, False)
-
-    '    If collection.Count = 1 Then
-    '        Return collection(0)
-    '    ElseIf collection.Count > 1 Then
-    '        Throw New Exception(String.Format("More than one certificate with name '{0}' found in store LocalMachine/My.", certificateName))
-    '    Else
-    '        Throw New Exception(String.Format("Certificate '{0}' not found in store LocalMachine/My.", certificateName))
-    '    End If
-    'End Function
-
-    'Private Sub EncryptRsa(ByVal input As String)
-    '    ' Dim output As String = String.Empty
-    '    Dim cert As X509Certificate2 = GetCertificate("localhost")
-
-    '    Using csp As RSACryptoServiceProvider = CType(cert.PublicKey.Key, RSACryptoServiceProvider)
-    '        Dim bytesData As Byte() = System.IO.File.ReadAllBytes(input)
-    '        Dim bytesEncrypted As Byte() = csp.Encrypt(bytesData, False)
-    '        '  output = Convert.ToBase64String(bytesEncrypted)
-    '        System.IO.File.WriteAllBytes(input, bytesEncrypted)
-    '    End Using
-
-    '    ' Return output
-    'End Sub
-
-    'Private Sub DecryptRsa(ByVal Input As String)
-    '    ' Dim text As String = String.Empty
-    '    Dim cert As X509Certificate2 = GetCertificate("localhost")
-
-    '    Using csp As RSACryptoServiceProvider = CType(cert.PrivateKey, RSACryptoServiceProvider)
-    '        Dim bytesEncrypted As Byte() = System.IO.File.ReadAllBytes(Input)
-    '        Dim bytesDecrypted As Byte() = csp.Decrypt(bytesEncrypted, False)
-    '        System.IO.File.WriteAllBytes(Input, bytesDecrypted)
-    '    End Using
-
-    'End Sub
-
-    'Private Sub Button1_Click(sender As System.Object, e As System.EventArgs)
-    '    Start_Encrypt()
-    'End Sub
-
-    'Private Sub Button2_Click(sender As System.Object, e As System.EventArgs)
-    '    Start_Dec()
-    'End Sub
-
-    'Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
-    '    End
-    'End Sub
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     Private Sub PictureBox3_MouseLeave(sender As Object, e As System.EventArgs) Handles PictureBox3.MouseLeave
         About.Close()
     End Sub
