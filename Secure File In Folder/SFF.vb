@@ -209,7 +209,7 @@ Public Class SFF
     Private Sub REVELAR_BGW_ProgressChanged(sender As Object, e As System.ComponentModel.ProgressChangedEventArgs) Handles REVELAR_BGW.ProgressChanged
         Invoke(Sub()
                    Me.ProgressBar1.Value = e.ProgressPercentage
-                   Processo_lbl.Text = "Processo: " & e.ProgressPercentage + 2 & "%"
+                   Processo_lbl.Text = "Processo: " & e.ProgressPercentage & "%"
                End Sub)
     End Sub
     Private Sub REVELAR_BGW_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles REVELAR_BGW.RunWorkerCompleted
@@ -320,7 +320,7 @@ Public Class SFF
     Private Sub ESCONDER_BGW_ProgressChanged(sender As Object, e As System.ComponentModel.ProgressChangedEventArgs) Handles ESCONDER_BGW.ProgressChanged
         Invoke(Sub()
                    Me.ProgressBar1.Value = e.ProgressPercentage
-                   Processo_lbl.Text = "Processo: " & e.ProgressPercentage + 2 & "%"
+                   Processo_lbl.Text = "Processo: " & e.ProgressPercentage & "%"
                End Sub)
     End Sub
     Private Sub ESCONDER_BGW_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles ESCONDER_BGW.RunWorkerCompleted
